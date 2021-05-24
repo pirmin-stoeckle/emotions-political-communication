@@ -1,0 +1,13 @@
+---
+title: Emotions in political communication of German parties on Facebook
+author: Pirmin Stoeckle
+date: \today
+institute: University of Mannheim
+output: binb::metropolis
+---
+
+# First Section
+
+## First Frame
+
+Hello, world!
