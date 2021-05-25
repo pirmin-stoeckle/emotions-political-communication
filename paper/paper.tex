@@ -1,49 +1,12 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
 %
 \documentclass[
-  ignorenonframetext,
-]{beamer}
-\usepackage{pgfpages}
-\setbeamertemplate{caption}[numbered]
-\setbeamertemplate{caption label separator}{: }
-\setbeamercolor{caption name}{fg=normal text.fg}
-\beamertemplatenavigationsymbolsempty
-% Prevent slide breaks in the middle of a paragraph
-\widowpenalties 1 10000
-\raggedbottom
-\setbeamertemplate{part page}{
-  \centering
-  \begin{beamercolorbox}[sep=16pt,center]{part title}
-    \usebeamerfont{part title}\insertpart\par
-  \end{beamercolorbox}
-}
-\setbeamertemplate{section page}{
-  \centering
-  \begin{beamercolorbox}[sep=12pt,center]{part title}
-    \usebeamerfont{section title}\insertsection\par
-  \end{beamercolorbox}
-}
-\setbeamertemplate{subsection page}{
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center]{part title}
-    \usebeamerfont{subsection title}\insertsubsection\par
-  \end{beamercolorbox}
-}
-\AtBeginPart{
-  \frame{\partpage}
-}
-\AtBeginSection{
-  \ifbibliography
-  \else
-    \frame{\sectionpage}
-  \fi
-}
-\AtBeginSubsection{
-  \frame{\subsectionpage}
-}
+]{article}
 \usepackage{lmodern}
+\usepackage{setspace}
 \usepackage{amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
@@ -76,12 +39,24 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Habits},
-  pdfauthor={John Doe},
-  hidelinks,
+  colorlinks=true,
+  linkcolor=Maroon,
+  filecolor=Maroon,
+  citecolor=Blue,
+  urlcolor=Blue,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\newif\ifbibliography
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -98,74 +73,28 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\setcounter{secnumdepth}{5}
 \ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
-\title{Habits}
-\author{John Doe}
-\date{March 22, 2005}
+\title{\hfill\break
+\hfill\break
+\vspace{1cm}Emotions and political communication*\footnote{*Corresponding address: \href{mailto:pirmin.stoeckle@gess.uni-mannheim.de}{\nolinkurl{pirmin.stoeckle@gess.uni-mannheim.de}}}\vspace{0.5cm}\\}
+\author{Pirmin Stöckle\\
+University of Mannheim}
+\date{\today}
 
 \begin{document}
-\frame{\titlepage}
+\maketitle
+\begin{abstract}
+\noindent\setstretch{1} Abstract, abstract, people!\vspace{.8cm}
+\end{abstract}
 
-\hypertarget{in-the-morning}{%
-\section{In the morning}\label{in-the-morning}}
+\setstretch{1.2}
+\hypertarget{why-reproducible-research-in-r}{%
+\section{Why reproducible research (in R)?}\label{why-reproducible-research-in-r}}
 
-\begin{frame}{Getting up}
-\protect\hypertarget{getting-up}{}
-\begin{itemize}
-\tightlist
-\item
-  Turn off alarm
-\item
-  Get out of bed
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Breakfast}
-\protect\hypertarget{breakfast}{}
-\begin{itemize}
-\tightlist
-\item
-  Eat eggs
-\item
-  Drink coffee
-\end{itemize}
-\end{frame}
-
-\hypertarget{in-the-evening}{%
-\section{In the evening}\label{in-the-evening}}
-
-\begin{frame}{Dinner}
-\protect\hypertarget{dinner}{}
-\begin{itemize}
-\tightlist
-\item
-  Eat spaghetti
-\item
-  Drink wine
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\begin{figure}
-\centering
-\includegraphics{presentation_files/figure-beamer/cars-1.pdf}
-\caption{A scatterplot.}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Going to sleep}
-\protect\hypertarget{going-to-sleep}{}
-\begin{itemize}
-\tightlist
-\item
-  Get in bed
-\item
-  Count sheep
-\end{itemize}
-\end{frame}
+Some arguments\ldots{}
 
 \end{document}

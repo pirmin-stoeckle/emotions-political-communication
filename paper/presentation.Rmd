@@ -1,13 +1,36 @@
 ---
-title: Emotions in political communication of German parties on Facebook
-author: Pirmin Stoeckle
-date: \today
-institute: University of Mannheim
-output: binb::metropolis
+title: "Habits"
+author: John Doe
+date: March 22, 2005
+output: beamer_presentation
 ---
 
-# First Section
+# In the morning
 
-## First Frame
+## Getting up
 
-Hello, world!
+- Turn off alarm
+- Get out of bed
+
+## Breakfast
+
+- Eat eggs
+- Drink coffee
+
+# In the evening
+
+## Dinner
+
+- Eat spaghetti
+- Drink wine
+
+---
+
+```{r, cars, fig.cap="A scatterplot.", echo=FALSE}
+plot(cars)
+```
+
+## Going to sleep
+
+- Get in bed
+- Count sheep
