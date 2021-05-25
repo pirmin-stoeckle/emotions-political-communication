@@ -1,3 +1,7 @@
+# load data from data-preparation
+source("scripts/data-preparation.R")
+
+
 library(lubridate)
 
 data %>% 
@@ -21,3 +25,10 @@ head(format(data$`Post Created Date`, "%Y-%m"))
 
 
 head(data$Message)
+
+library(tidytext)
+
+data_token <- data %>%
+  mutate(year_month = format(data$`Post Created Date`, "%Y-%m")) %>% 
+  unnest_tokens(word, Message)
+head(data_token$word)
