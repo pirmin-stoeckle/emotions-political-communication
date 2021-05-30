@@ -16,12 +16,33 @@ data %>%
 
 # interactions by party over time
 data %>%
-  filter(date > "2017-01-01") %>% 
-  ggplot(aes(x = date, y = total_interactions, group = party)) +
-  geom_point(aes(color = party)) + 
-  geom_smooth() +
-  facet_wrap(~party) 
+  filter(date > "2016-01-01") %>% 
+  group_by(party, date_week) %>% 
+  summarize(total_interactions = sum(total_interactions)/1000) %>% 
+  ggplot(aes(x = date_week, y = total_interactions)) +
+  geom_point(aes(color = party), alpha = 0.4) + 
+  #geom_smooth() +
+  facet_wrap(~fct_inorder(party)) +
+  labs(title = "Total weekly interactions with Facebook posts by the respective party (in thousands)",
+       x = "",
+       y = "") +
+  scale_color_manual(breaks = c("AfD", 
+                                "CSU (Christlich-Soziale Union)", 
+                                "DIE LINKE",
+                                "SPD",
+                                "CDU",
+                                "FDP",
+                                "BÜNDNIS 90/DIE GRÜNEN"),
+                     values=c("darkblue", 
+                              "skyblue1", 
+                              "magenta4",
+                              "red",
+                              "black",
+                              "yellow2",
+                              "green")) +
+  theme(legend.position = "NONE")
 
+ggsave(filename = "./figures/total_interactions.png", device = png(), width = 20, height = 10, units = "cm")
 
 # when was the introduction of reactions? (2016)
 data %>% 
@@ -35,15 +56,34 @@ ggplot(data[data$date > "2017-01-01",], aes(x = date, y = Angry)) +
 
 # angry by party over time
 data %>%
-  filter(date > "2017-01-01") %>% 
-  group_by(party) %>% 
-  ggplot(aes(x = date, y = angry_share, group = party)) +
-  geom_point(aes(color = party), alpha = 0.2) + 
+  filter(date > "2016-01-01") %>% 
+  ggplot(aes(x = date, y = angry_share)) +
+  geom_point(aes(color = party), alpha = 0.4) + 
   geom_smooth() +
-  #geom_vline(xintercept = date("2017-09-24")) + # BTW
-  #geom_vline(xintercept = date("2020-03-19")) + # Merkels Anpsrache
-  facet_wrap(~party)
+  facet_wrap(~party) +
+  labs(title = "Share of 'Angry' reactions on all reactions to a post",
+       x = "",
+       y = "") +
+  ylim(c(0, 1)) +
+  scale_color_manual(breaks = c("AfD", 
+                                "CSU (Christlich-Soziale Union)", 
+                                "DIE LINKE",
+                                "SPD",
+                                "CDU",
+                                "FDP",
+                                "BÜNDNIS 90/DIE GRÜNEN"),
+                     values=c("darkblue", 
+                              "skyblue1", 
+                              "magenta4",
+                              "red",
+                              "black",
+                              "yellow2",
+                              "green")) +
+  theme(legend.position = "NONE")
 
+ggsave(filename = "./figures/angry_share.png", device = png())
+
+getwd()
 # was ist da bei der spd los
 data %>% 
   filter(party == "SPD") %>% 
@@ -53,12 +93,32 @@ data %>%
 
 # love by party over time
 data %>%
-  filter(date > "2017-01-01") %>% 
-  group_by(party) %>% 
-  ggplot(aes(x = date, y = love_share, group = party)) +
-  geom_point(aes(color = party), alpha = 0.2) + 
+  filter(date > "2016-01-01") %>% 
+  ggplot(aes(x = date, y = love_share)) +
+  geom_point(aes(color = party), alpha = 0.4) + 
   geom_smooth() +
-  facet_wrap(~party)
+  facet_wrap(~party) +
+  labs(title = "Share of 'Love' reactions on all reactions to a post",
+       x = "",
+       y = "") +
+  ylim(c(0, 1)) +
+  scale_color_manual(breaks = c("AfD", 
+                                "CSU (Christlich-Soziale Union)", 
+                                "DIE LINKE",
+                                "SPD",
+                                "CDU",
+                                "FDP",
+                                "BÜNDNIS 90/DIE GRÜNEN"),
+                     values=c("darkblue", 
+                              "skyblue1", 
+                              "magenta4",
+                              "red",
+                              "black",
+                              "yellow2",
+                              "green")) +
+  theme(legend.position = "NONE")
+
+ggsave(filename = "./figures/love_share.png", device = png())
 
 # Since 2017, what is the distribution of love and share
 summary(data[data$date > "2017-01-01",]$Love)

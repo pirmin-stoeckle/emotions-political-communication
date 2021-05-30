@@ -18,8 +18,17 @@ glimpse(data)
 
 data$party <- as.factor(data$`Page Name`)
 
-summary(data$party)
+levels(data$party)
+data$party <- fct_relevel(data$party,
+                          "CDU",
+                          "CSU (Christlich-Soziale Union)",
+                          "SPD",
+                          "BÜNDNIS 90/DIE GRÜNEN",
+                          "FDP",
+                          "DIE LINKE",
+                          "AfD")
 
+summary(data$party)
 # date
 data <- data %>% 
   mutate(date = data$`Post Created Date`,
