@@ -2,7 +2,7 @@
 title: |
   |
   | 
-  | \vspace{1cm}Emotion and political communication*^[*Corresponding address: pirmin.stoeckle@gess.uni-mannheim.de]\vspace{0.5cm}
+  | \vspace{1cm}Emotion and political communication^[Corresponding address: pirmin.stoeckle@gess.uni-mannheim.de]\vspace{0.5cm}
   |
 author: |
   | Pirmin Stöckle
@@ -11,14 +11,93 @@ date: \today
 linestretch: 1.2
 colorlinks: true
 abstract: \noindent\setstretch{1} Abstract, abstract, people!\vspace{.8cm}
+bibliography: references.bib
+csl: american-sociological-association.csl
 output:
   bookdown::pdf_document2:
     toc: no
     keep_tex: true
+mainfont: Times New Roman
+sansfont: Times New Roman
+fontsize: 12pt
+link-citations: true
+documentclass: article
+geometry: margin=1in
+always_allow_html: yes
 
 ---
 
 
+Approach similar to [@eberl2020what].
 
 
 
+The research design you hand in should answer a set of fundamental questions (around 2 pages). 
+
+Research question: What is the question you would like to answer?
+e.g. Is there a causal effect of education on income?
+e.g. Is there a causal effect of slave trade on trust?
+e.g. Is there a causal effect of minimum wage on employment?
+
+Precise research questions should already specify the population one is interested in, e.g. “Is there a causal effect of education on income among German citizens (or German residents)?”
+
+Ideal experiment: What would be the ideal experiment to study this question?
+
+Population (Target): What is the population you are making an inference about?
+e.g. humans, German citizens, refugees, all countries, cities
+
+Sample: What kind of sample are you using?
+e.g., simple random sample of Germans, a random sample of cities
+Subquestions: What is your sampling frame? How was your sample collected?
+e.g. called individuals randomly drawn from a phone book, contacted individuals randomly drawn from an address list provided by the government, opt-in online sample invited through email
+
+Unit: What is the fundamental unit you are analyzing/comparing?
+e.g. individuals, cities etc. (see research question)
+Important: Make a clear distinction between individual units (e.g. individuals) and aggregates of units (e.g. individuals in certain cities) as well as observations (e.g. we may observe the same individual across time). Think about on which level the treatment is operating.
+
+Data/Observations: What data are you using (e.g. cross-sectional, panel etc.)? When was the data collected?
+..if different variables have been collected at different timepoints indicated that here (e.g. victimization measures in 2005, trust measured in 2010)
+
+Measurement: How do you measure outcome, treatment and control variables?
+e.g. income measured through a survey question
+Subquestions: What do these measures look like? Survey questions? Scales/Categories? Coding decisions etc.? When are they measured? Do you have timestamps for changes?
+How you construct the respective variables?
+E.g. For the treatment variable I take the education scale (0-5) and construct a new variable (0,1) where 0 is educational levels lower than and including high school, 1 is educational levels higher than high school.
+
+Measurement error: Do you expect any measurement error? 
+e.g. outcome is income and males will report higher than true income
+Subquestions: If yes, for all units or particular units? What is the direction of that error - under- or overestimation?
+
+Identification strategy/design: What identification strategy are you using? 
+e.g. randomized experiment, field experiment, observational data using certain method/assumptions
+E.g. I use cross-sectional data. I control for X1, X2, X3 and assume that assignment to values of D is random conditional on these covariates (“selection on observables”)
+
+Model & Unit of analysis & Estimation:
+How do you estimate the causal effect(s)? What model are you using?
+e.g. OLS regression, Comparison of means with a t-test
+What is the unit of analysis in your model?
+e.g. individuals, individuals*time, countries*years
+Which causal quantity are you interested in?
+e.g. ATE, ATT etc.
+
+Theory/Causal Mechanism: What is the “assumed” causal chain/mechanism that connects values of D with values of Y?
+e.g. A reaches a higher educational level, A looks for better-paid jobs, A gets a job that is better paid...
+
+Hypotheses: What effect (direction, size) do you expect for D on Y? Why? What theories is your expectation based on?
+“The higher/lower X, the higher/lower Y”
+Think of the hypothesis in terms of counterfactuals; If Peter had a higher education level (3 instead of 2), he would have a higher level of income (1000 instead of 500); If the the individuals in the control group (0) had been in the treatment group (1), they would have…
+
+Previous evidence: Is there previous evidence on the question you study?
+If there is any previous research, provide a list of studies/books that may be relevant to your research question. 
+Search https://scholar.google.ch/ for the concepts you study (e.g. happiness etc.). Make sure that you also search for concepts closely linked to the ones you are interested in. For instance, research on happiness can be also found under the label well-being etc. 
+
+
+
+# References
+
+\linespread{1}
+
+
+::: {#refs}
+
+:::

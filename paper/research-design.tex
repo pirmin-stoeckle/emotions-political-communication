@@ -1,0 +1,161 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[
+  12pt,
+]{article}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{Times New Roman}
+  \setsansfont[]{Times New Roman}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=Maroon,
+  filecolor=Maroon,
+  citecolor=Blue,
+  urlcolor=Blue,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+\title{\vspace{1cm}Emotion and political communication\footnote{Corresponding address: \href{mailto:pirmin.stoeckle@gess.uni-mannheim.de}{\nolinkurl{pirmin.stoeckle@gess.uni-mannheim.de}}}\vspace{0.5cm}\\}
+\author{Pirmin Stöckle\\
+University of Mannheim}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+\noindent\setstretch{1} Abstract, abstract, people!\vspace{.8cm}
+\end{abstract}
+
+\setstretch{1.2}
+Approach similar to (Eberl et al. \protect\hyperlink{ref-eberl2020what}{2020}).
+
+The research design you hand in should answer a set of fundamental questions (around 2 pages).
+
+Research question: What is the question you would like to answer?
+e.g.~Is there a causal effect of education on income?
+e.g.~Is there a causal effect of slave trade on trust?
+e.g.~Is there a causal effect of minimum wage on employment?
+
+Precise research questions should already specify the population one is interested in, e.g.~``Is there a causal effect of education on income among German citizens (or German residents)?''
+
+Ideal experiment: What would be the ideal experiment to study this question?
+
+Population (Target): What is the population you are making an inference about?
+e.g.~humans, German citizens, refugees, all countries, cities
+
+Sample: What kind of sample are you using?
+e.g., simple random sample of Germans, a random sample of cities
+Subquestions: What is your sampling frame? How was your sample collected?
+e.g.~called individuals randomly drawn from a phone book, contacted individuals randomly drawn from an address list provided by the government, opt-in online sample invited through email
+
+Unit: What is the fundamental unit you are analyzing/comparing?
+e.g.~individuals, cities etc. (see research question)
+Important: Make a clear distinction between individual units (e.g.~individuals) and aggregates of units (e.g.~individuals in certain cities) as well as observations (e.g.~we may observe the same individual across time). Think about on which level the treatment is operating.
+
+Data/Observations: What data are you using (e.g.~cross-sectional, panel etc.)? When was the data collected?
+..if different variables have been collected at different timepoints indicated that here (e.g.~victimization measures in 2005, trust measured in 2010)
+
+Measurement: How do you measure outcome, treatment and control variables?
+e.g.~income measured through a survey question
+Subquestions: What do these measures look like? Survey questions? Scales/Categories? Coding decisions etc.? When are they measured? Do you have timestamps for changes?
+How you construct the respective variables?
+E.g. For the treatment variable I take the education scale (0-5) and construct a new variable (0,1) where 0 is educational levels lower than and including high school, 1 is educational levels higher than high school.
+
+Measurement error: Do you expect any measurement error?
+e.g.~outcome is income and males will report higher than true income
+Subquestions: If yes, for all units or particular units? What is the direction of that error - under- or overestimation?
+
+Identification strategy/design: What identification strategy are you using?
+e.g.~randomized experiment, field experiment, observational data using certain method/assumptions
+E.g. I use cross-sectional data. I control for X1, X2, X3 and assume that assignment to values of D is random conditional on these covariates (``selection on observables'')
+
+Model \& Unit of analysis \& Estimation:
+How do you estimate the causal effect(s)? What model are you using?
+e.g.~OLS regression, Comparison of means with a t-test
+What is the unit of analysis in your model?
+e.g.~individuals, individuals\emph{time, countries}years
+Which causal quantity are you interested in?
+e.g.~ATE, ATT etc.
+
+Theory/Causal Mechanism: What is the ``assumed'' causal chain/mechanism that connects values of D with values of Y?
+e.g.~A reaches a higher educational level, A looks for better-paid jobs, A gets a job that is better paid\ldots{}
+
+Hypotheses: What effect (direction, size) do you expect for D on Y? Why? What theories is your expectation based on?
+``The higher/lower X, the higher/lower Y''
+Think of the hypothesis in terms of counterfactuals; If Peter had a higher education level (3 instead of 2), he would have a higher level of income (1000 instead of 500); If the the individuals in the control group (0) had been in the treatment group (1), they would have\ldots{}
+
+Previous evidence: Is there previous evidence on the question you study?
+If there is any previous research, provide a list of studies/books that may be relevant to your research question.
+Search \url{https://scholar.google.ch/} for the concepts you study (e.g.~happiness etc.). Make sure that you also search for concepts closely linked to the ones you are interested in. For instance, research on happiness can be also found under the label well-being etc.
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\linespread{1}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-eberl2020what}{}%
+Eberl, Jakob-Moritz, Petro Tolochko, Pablo Jost, Tobias Heidenreich, and Hajo G. Boomgaarden. 2020. ``What's in a post? How sentiment and issue salience affect users' emotional reactions on Facebook.'' \emph{Journal of Information Technology \& Politics} 17(1):48--65.
+
+\end{document}
