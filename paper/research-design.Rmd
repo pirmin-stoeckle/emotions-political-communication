@@ -1,16 +1,14 @@
 ---
 title: |
-  |
-  | 
-  | \vspace{1cm}Emotion and political communication^[Corresponding address: pirmin.stoeckle@gess.uni-mannheim.de]\vspace{0.5cm}
-  |
+  | Predicting emotional reactions to Facebook posts 
+  | by political actors^[Term paper research design for the seminar ``Computational Social Science'']
 author: |
-  | Pirmin Stöckle
-  | University of Mannheim
+  | Pirmin Stöckle^[Corresponding address: pirmin.stoeckle@gess.uni-mannheim.de]
+  | GESS and SFB 884, University of Mannheim
 date: \today
 linestretch: 1.2
 colorlinks: true
-abstract: \noindent\setstretch{1} Abstract, abstract, people!\vspace{.8cm}
+#abstract: \noindent\setstretch{1} Abstract, abstract, people!\vspace{.8cm}
 bibliography: references.bib
 csl: american-sociological-association.csl
 output:
@@ -27,76 +25,53 @@ always_allow_html: yes
 
 ---
 
+# Introduction
 
-Approach similar to [@eberl2020what].
+Emotions play a central role in social life, of which politics is no exception. Political science research has investigated systematic effects of emotions on politically relevant behavior such as turnout [@valentino2011election], vote choice [@brader2005striking; @groenendyk2019two], information search [@clifford2018disgust; @valentino2008worried], and public attitudes [@clifford2019how].
+
+It is certainly not a new idea that politcal actor face incentives to strategically employ emotions in their electoral campaigns -- and political communication more generally -- in order to gain public support. However, the study of emotions in political communication has received a recent push in interest due to methodological advancements, such as automated text analysis [@grimmer2013text; @wilkerson2017large] applied to sentiment and emotions in party manifestos [@crabtree2020how], social media data [@widmann2021how], and parliamentary speech [@osnabrugge2021playing]. ^[And even the application of physiological measures [@bakker2021hot].]
+
+These studies provide insights into not only what, but how political actors communicate. Results indicate, e.g., that incumbent parties use more positive sentiment than opposition parties [@crabtree2020how] and populist parties use more negative emotional appeals (anger, fear, disgust, sadness) and less positive emotional appeals (joy, enthusiasm, pride, hope) [@widmann2021how].
+
+Especially on social media, emotions are important, e.g. because false news on Twitter spread faster than true news, possibly because of invoked emotional responses [@vosoughi2018spread]. There is also evidence of emotional contagion on Facebook, shown by the observation that users exposed to fewer positive posts tend to produce fewer positive posts themselves [@kramer2014experimental]. At the same time, social media provide political actors with unprecedented means to communicate directly to large audiences [@stier2018election]. Still, we know relatively little about the effects of emotional communication by polticial actors and its trategic use.
+
+# Research question
+
+Against this background, I investigate emotional reactions to social media posts from political actors. More specifically, I ask: Which characteristics explain the amount of specific emotional reactions a post gets?
+
+Substantively, I argue that a systematic link between political communication and reactions to it is a necessary condition for political communciation to be used strategically.
+
+I expect that sentiment in posts by political actors affect user's emotional reactions to these posts. The research question of this study closely follows a recent study by @eberl2020what. Using data from Austrian political actors during the 2017 Austrian election, they find that the sentiment of a Facebook post relates to the number of "Love" and "Angry" reactions to that post.
+
+I build on this study, but go beyond it in several aspects. First, I analyze data from Germany and will extend the timeframe to a complete legislative cycle instead of one election campaign. Second, my empirical approach is different because I apply an exploratory approach based on machine learning, instead of formulating hypotheses in a confirmatory framework. The focus is thus on predicting $\hat{Y}$ (reactions) instead of quantifying the contribution from one individual $\hat{\beta_i}*X_i$. Such an approach is kind of new for political science but clearly on the rise [@grimmer2021machine].
+
+While the focus is on prediction, I will also evaluate the effects of subtantively interesting factors, i.e., evaluate their contribution for predicting the outcome.
+
+# Data & Measurement
+
+I use data on Facebook posts by political actors obtained via CrowdTangle. CrowdTangle is a public insights tool, whose main intent was to monitor what content overperformed in terms of interactions (likes, shares, etc.) on Facebook and other social media platforms. In 2016, CrowdTangle was acquired by Facebook that now provides the service.
+
+After receiving individual access for scientific purposes, CrowdTangle offers extensive functionality to download Facebook posts and related metadata from public pages, such as verified official pages or individual accounts with large numbers of followers. The availability of the data goes back until the very start of Facebook and thus offers a large amount of data. Besides the textual post content, the data also contains account information, and -- crucially for this project -- the number of interactions with the post (for a codebook see @garmur2019crowdtangle). These interactions include the number of likes, shares and comments. 
+
+Since 2016, Facebook offers a set of distinct reactions to posts expressed by emojis, which may be interpreted as emotional reactions ("Love", "Angry", "Haha", "Wow", "Sad", "Care"). While some of these are quite ambiguous, recent research has used the "Love" and "Angry" reactions as proxies for the respective emotional response [@eberl2020what; @muraoka2021love].
 
 
+For now, I will restrict the analysis to Germany, but in principle, the approach will be scalable to other cases as well, since Facebook coverage is wide and behavior on the platform can be analyzed using a common metric [@muraoka2021love].
 
-The research design you hand in should answer a set of fundamental questions (around 2 pages). 
+For the first step, I will also restrict the analyis to posts from party accounts, as this already presents a large data source without the need to identify all relevant accounts from individual politcal candidates. In the next step, however, I will include all posts from individual candidates, which will then represent a more complex, nested data structure (posts nested within accounts, nested within parties).
 
-Research question: What is the question you would like to answer?
-e.g. Is there a causal effect of education on income?
-e.g. Is there a causal effect of slave trade on trust?
-e.g. Is there a causal effect of minimum wage on employment?
 
-Precise research questions should already specify the population one is interested in, e.g. “Is there a causal effect of education on income among German citizens (or German residents)?”
+# Estimation strategy
+I intend to build a machine learning model predicting emotional reactions to Facebook posts. As outcome measure I will either use the number of "Love" /"Angry" reactions or its share on all reactions.
 
-Ideal experiment: What would be the ideal experiment to study this question?
+As inputs, I intend to use three broad types of input: (i) metadata about the post as obtained from CrowdTangle, (ii) data derived from the message text, such as sentiment or topic, and (iii) external data from the information environment such as public issue salience, economic conditions, opinion polls, or time until election day.
 
-Population (Target): What is the population you are making an inference about?
-e.g. humans, German citizens, refugees, all countries, cities
-
-Sample: What kind of sample are you using?
-e.g., simple random sample of Germans, a random sample of cities
-Subquestions: What is your sampling frame? How was your sample collected?
-e.g. called individuals randomly drawn from a phone book, contacted individuals randomly drawn from an address list provided by the government, opt-in online sample invited through email
-
-Unit: What is the fundamental unit you are analyzing/comparing?
-e.g. individuals, cities etc. (see research question)
-Important: Make a clear distinction between individual units (e.g. individuals) and aggregates of units (e.g. individuals in certain cities) as well as observations (e.g. we may observe the same individual across time). Think about on which level the treatment is operating.
-
-Data/Observations: What data are you using (e.g. cross-sectional, panel etc.)? When was the data collected?
-..if different variables have been collected at different timepoints indicated that here (e.g. victimization measures in 2005, trust measured in 2010)
-
-Measurement: How do you measure outcome, treatment and control variables?
-e.g. income measured through a survey question
-Subquestions: What do these measures look like? Survey questions? Scales/Categories? Coding decisions etc.? When are they measured? Do you have timestamps for changes?
-How you construct the respective variables?
-E.g. For the treatment variable I take the education scale (0-5) and construct a new variable (0,1) where 0 is educational levels lower than and including high school, 1 is educational levels higher than high school.
-
-Measurement error: Do you expect any measurement error? 
-e.g. outcome is income and males will report higher than true income
-Subquestions: If yes, for all units or particular units? What is the direction of that error - under- or overestimation?
-
-Identification strategy/design: What identification strategy are you using? 
-e.g. randomized experiment, field experiment, observational data using certain method/assumptions
-E.g. I use cross-sectional data. I control for X1, X2, X3 and assume that assignment to values of D is random conditional on these covariates (“selection on observables”)
-
-Model & Unit of analysis & Estimation:
-How do you estimate the causal effect(s)? What model are you using?
-e.g. OLS regression, Comparison of means with a t-test
-What is the unit of analysis in your model?
-e.g. individuals, individuals*time, countries*years
-Which causal quantity are you interested in?
-e.g. ATE, ATT etc.
-
-Theory/Causal Mechanism: What is the “assumed” causal chain/mechanism that connects values of D with values of Y?
-e.g. A reaches a higher educational level, A looks for better-paid jobs, A gets a job that is better paid...
-
-Hypotheses: What effect (direction, size) do you expect for D on Y? Why? What theories is your expectation based on?
-“The higher/lower X, the higher/lower Y”
-Think of the hypothesis in terms of counterfactuals; If Peter had a higher education level (3 instead of 2), he would have a higher level of income (1000 instead of 500); If the the individuals in the control group (0) had been in the treatment group (1), they would have…
-
-Previous evidence: Is there previous evidence on the question you study?
-If there is any previous research, provide a list of studies/books that may be relevant to your research question. 
-Search https://scholar.google.ch/ for the concepts you study (e.g. happiness etc.). Make sure that you also search for concepts closely linked to the ones you are interested in. For instance, research on happiness can be also found under the label well-being etc. 
-
+The exact model specifications are yet to be defined. Model performance will be investigated on test data, which will be left untouched during the model training phase (e.g. @james2013introduction).
 
 
 # References
 
 \linespread{1}
-
 
 ::: {#refs}
 
