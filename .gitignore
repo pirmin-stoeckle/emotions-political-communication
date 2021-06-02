@@ -40,3 +40,9 @@ vignettes/*.pdf
 
 # data folder
 data/
+
+# paper template should be on the drive but not on github
+paper/paper-template.Rmd
+
+# .tex files are created by markdown to create pdf, but all information is in markdown
+paper/*.tex
