@@ -1,8 +1,8 @@
 # load packages
 library(tidyverse)
 library(lubridate)
-# load data from crowdtangle (historical data so available as a download-link sent via email)
 
+# load data from crowdtangle (historical data so available as a download-link sent via email)
 data <- read_csv("data/raw/2021-05-27-14-03-55-CEST-Historical-Report-German-Political-Parties-1969-12-31--2021-05-27.csv")
 
 glimpse(data)
@@ -29,6 +29,7 @@ data$party <- fct_relevel(data$party,
                           "AfD")
 
 summary(data$party)
+
 # date
 data <- data %>% 
   mutate(date = data$`Post Created Date`,
@@ -43,7 +44,7 @@ data$total_interactions <-  data$`Total Interactions`
 
 summary(data$total_interactions)
 
-# reactions as share on all interactions
+# specific reactions as share on all reactions
 data <- data %>% 
   mutate(reactions = Likes + Love + Wow + Haha + Sad + Angry + Care,
          likes_share = Likes / reactions,

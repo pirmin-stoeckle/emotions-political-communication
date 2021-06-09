@@ -130,12 +130,6 @@ table(data[data$date > "2017-01-01",]$Angry>8)
 table(data[data$date > "2017-01-01",]$Angry>10, data[data$date > "2017-01-01",]$Love>8)
 # -> these things could be predicted by a machine learning model from characteristics of the post
 
-library(tidytext)
-
-data_token <- data %>%
-  unnest_tokens(word, Message)
-head(data_token$word)
-
 # most successful post
 data %>% 
   arrange(desc(total_interactions)) %>% 
