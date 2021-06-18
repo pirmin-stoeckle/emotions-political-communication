@@ -29,23 +29,23 @@ always_allow_html: yes
 
 Emotions play a central role in social life, of which politics is no exception. Political science research has investigated systematic effects of emotions on politically relevant behavior such as turnout [@valentino2011election], vote choice [@brader2005striking; @groenendyk2019two], information search [@clifford2018disgust; @valentino2008worried], and public attitudes [@clifford2019how].
 
-It is certainly not a new idea that politcal actor face incentives to strategically employ emotions in their electoral campaigns -- and political communication more generally -- in order to gain public support. However, the study of emotions in political communication has received a recent push in interest due to methodological advancements, such as automated text analysis [@grimmer2013text; @wilkerson2017large] applied to sentiment and emotions in party manifestos [@crabtree2020how], social media data [@widmann2021how], and parliamentary speech [@osnabrugge2021playing]. ^[And even the application of physiological measures [@bakker2021hot].]
+It is certainly not a new idea that political actor face incentives to strategically employ emotions in their electoral campaigns -- and political communication more generally -- in order to gain public support. However, the study of emotions in political communication has received a recent push in interest due to methodological advancements, such as automated text analysis [@grimmer2013text; @wilkerson2017large] applied to sentiment and emotions in party manifestos [@crabtree2020how], social media data [@widmann2021how], and parliamentary speech [@osnabrugge2021playing]. ^[And even the application of physiological measures [@bakker2021hot].]
 
 These studies provide insights into not only what, but how political actors communicate. Results indicate, e.g., that incumbent parties use more positive sentiment than opposition parties [@crabtree2020how] and populist parties use more negative emotional appeals (anger, fear, disgust, sadness) and less positive emotional appeals (joy, enthusiasm, pride, hope) [@widmann2021how].
 
-Especially on social media, emotions are important, e.g. because false news on Twitter spread faster than true news, possibly because of invoked emotional responses [@vosoughi2018spread]. There is also evidence of emotional contagion on Facebook, shown by the observation that users exposed to fewer positive posts tend to produce fewer positive posts themselves [@kramer2014experimental]. At the same time, social media provide political actors with unprecedented means to communicate directly to large audiences [@stier2018election]. Still, we know relatively little about the effects of emotional communication by polticial actors and its trategic use.
+Especially on social media, emotions are important, e.g. because false news on Twitter spread faster than true news, possibly because of invoked emotional responses [@vosoughi2018spread]. There is also evidence of emotional contagion on Facebook, shown by the observation that users exposed to fewer positive posts tend to produce fewer positive posts themselves [@kramer2014experimental]. At the same time, social media provide political actors with unprecedented means to communicate directly to large audiences [@stier2018election]. Still, we know relatively little about the effects of emotional communication by political actors and its strategic use.
 
 # Research question
 
 Against this background, I investigate emotional reactions to social media posts from political actors. More specifically, I ask: Which characteristics explain the amount of specific emotional reactions a post gets?
 
-Substantively, I argue that a systematic link between political communication and reactions to it is a necessary condition for political communciation to be used strategically.
+Substantively, I argue that a systematic link between political communication and reactions to it is a necessary condition for political communication to be used strategically.
 
 I expect that sentiment in posts by political actors affect user's emotional reactions to these posts. The research question of this study closely follows a recent study by @eberl2020what. Using data from Austrian political actors during the 2017 Austrian election, they find that the sentiment of a Facebook post relates to the number of "Love" and "Angry" reactions to that post.
 
 I build on this study, but go beyond it in several aspects. First, I analyze data from Germany and will extend the timeframe to a complete legislative cycle instead of one election campaign. Second, my empirical approach is different because I apply an exploratory approach based on machine learning, instead of formulating hypotheses in a confirmatory framework. The focus is thus on predicting $\hat{Y}$ (reactions) instead of quantifying the contribution from one individual $\hat{\beta_i}*X_i$. Such an approach is kind of new for political science but clearly on the rise [@grimmer2021machine].
 
-While the focus is on prediction, I will also evaluate the effects of subtantively interesting factors, i.e., evaluate their contribution for predicting the outcome.
+While the focus is on prediction, I will also evaluate the effects of substantively interesting factors, i.e., evaluate their contribution for predicting the outcome.
 
 # Data & Measurement
 
@@ -58,7 +58,7 @@ Since 2016, Facebook offers a set of distinct reactions to posts expressed by em
 
 For now, I will restrict the analysis to Germany, but in principle, the approach will be scalable to other cases as well, since Facebook coverage is wide and behavior on the platform can be analyzed using a common metric [@muraoka2021love].
 
-For the first step, I will also restrict the analyis to posts from party accounts, as this already presents a large data source without the need to identify all relevant accounts from individual politcal candidates. In the next step, however, I will include all posts from individual candidates, which will then represent a more complex, nested data structure (posts nested within accounts, nested within parties).
+For the first step, I will also restrict the analysis to posts from party accounts, as this already presents a large data source without the need to identify all relevant accounts from individual political candidates. In the next step, however, I will include all posts from individual candidates, which will then represent a more complex, nested data structure (posts nested within accounts, nested within parties).
 
 
 # Estimation strategy
