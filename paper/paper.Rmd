@@ -25,11 +25,6 @@ always_allow_html: yes
 
 ---
 
-```{r, include=FALSE}
-library(tinytex)
-options(tinytex.verbose = TRUE)
-```
-
 
 # Introduction
 
