@@ -1,7 +1,7 @@
 ---
 title: |
   | Predicting emotional reactions to Facebook posts 
-  | by political actors^[Term paper research design for the seminar ``Computational Social Science'']
+  | by political actors^[Term paperfor the seminar ``Computational Social Science'']
 author: |
   | Pirmin Stöckle^[Corresponding address: pirmin.stoeckle@gess.uni-mannheim.de]
   | GESS and SFB 884, University of Mannheim
