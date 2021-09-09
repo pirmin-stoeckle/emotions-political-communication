@@ -1,0 +1,30 @@
+/* page size */
+@page {
+  size: 210mm 297mm;
+}
+
+/* first page */
+@page :first {
+  @top-center {
+    content: none;
+  }
+  @top-right {
+    content: none;
+  }
+}
+
+/* left page */
+.shorttitle {
+  position: running(runningTitle);
+}
+
+@page {
+  @bottom-right {
+    content: counter(page);
+  }
+  @top-center {
+    content: element(runningTitle);
+    width: 150mm;
+    font-style: italic;
+  }
+}

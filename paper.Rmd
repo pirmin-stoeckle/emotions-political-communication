@@ -1,0 +1,79 @@
+---
+title: "Predicting emotional reactions to Facebook posts by political actors^[Corresponding adress: pirmin.stoeckle@gmail.com]"
+shorttitle: "Writing a reproducible paper with R Markdown and Pagedown"
+author:
+  - name: Pirmin Stöckle
+    affiliation: Mannheim Centre for European Social Research
+    email: <pirmin.stoeckle@gmail.com>
+date: 'First version: 20 June, 2021<br>This version: `r format(Sys.time(), "%d %B, %Y")`'
+download-link: 'Download: https://osf.io/k8jhx'
+abstract: 'Bliblablubb'
+# at least one keyword must be supplied
+keywords: [open science, transparency, replication, reproducible research, reproducibility, R, markdown, pagedown]
+links-to-footnotes: false
+paged-footnotes: true
+bibliography: references.bib
+output: 
+  pagedown::jss_paged:
+    template: wp_paged.html
+    self_contained: true
+    css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
+    csl: american-sociological-association.csl
+# uncomment the next line if you only want to knit to HTML and not PDF
+knit: pagedown::chrome_print
+---
+
+
+# Introduction
+
+Emotions play a central role in social life, of which politics is no exception. Political science research has investigated systematic effects of emotions on politically relevant behavior such as turnout [@valentino2011election], vote choice [@brader2005striking; @groenendyk2019two], information search [@clifford2018disgust; @valentino2008worried], and public attitudes [@clifford2019how].
+
+It is certainly not a new idea that political actor face incentives to strategically employ emotions in their electoral campaigns -- and political communication more generally -- in order to gain public support. However, the study of emotions in political communication has received a recent push in interest due to methodological advancements, such as automated text analysis [@grimmer2013text; @wilkerson2017large] applied to sentiment and emotions in party manifestos [@crabtree2020how], social media data [@widmann2021how], and parliamentary speech [@osnabrugge2021playing]. ^[And even the application of physiological measures [@bakker2021hot].]
+
+These studies provide insights into not only what, but how political actors communicate. Results indicate, e.g., that incumbent parties use more positive sentiment than opposition parties [@crabtree2020how] and populist parties use more negative emotional appeals (anger, fear, disgust, sadness) and less positive emotional appeals (joy, enthusiasm, pride, hope) [@widmann2021how].
+
+Especially on social media, emotions are important, e.g. because false news on Twitter spread faster than true news, possibly because of invoked emotional responses [@vosoughi2018spread]. There is also evidence of emotional contagion on Facebook, shown by the observation that users exposed to fewer positive posts tend to produce fewer positive posts themselves [@kramer2014experimental]. At the same time, social media provide political actors with unprecedented means to communicate directly to large audiences [@stier2018election]. Still, we know relatively little about the effects of emotional communication by political actors and its strategic use.
+
+# Research question
+
+Against this background, I investigate emotional reactions to social media posts from political actors. More specifically, I ask: Which characteristics explain the amount of specific emotional reactions a post gets?
+
+Substantively, I argue that a systematic link between political communication and reactions to it is a necessary condition for political communication to be used strategically.
+
+I expect that sentiment in posts by political actors affect user's emotional reactions to these posts. The research question of this study closely follows a recent study by @eberl2020what. Using data from Austrian political actors during the 2017 Austrian election, they find that the sentiment of a Facebook post relates to the number of "Love" and "Angry" reactions to that post.
+
+I build on this study, but go beyond it in several aspects. First, I analyze data from Germany and will extend the timeframe to a complete legislative cycle instead of one election campaign. Second, my empirical approach is different because I apply an exploratory approach based on machine learning, instead of formulating hypotheses in a confirmatory framework. The focus is thus on predicting $\hat{Y}$ (reactions) instead of quantifying the contribution from one individual $\hat{\beta_i}*X_i$. Such an approach is kind of new for political science but clearly on the rise [@grimmer2021machine].
+
+While the focus is on prediction, I will also evaluate the effects of substantively interesting factors, i.e., evaluate their contribution for predicting the outcome.
+
+# Data & Measurement
+
+I use data on Facebook posts by political actors obtained via CrowdTangle. CrowdTangle is a public insights tool, whose main intent was to monitor what content overperformed in terms of interactions (likes, shares, etc.) on Facebook and other social media platforms. In 2016, CrowdTangle was acquired by Facebook that now provides the service.
+
+After receiving individual access for scientific purposes, CrowdTangle offers extensive functionality to download Facebook posts and related metadata from public pages, such as verified official pages or individual accounts with large numbers of followers. The availability of the data goes back until the very start of Facebook and thus offers a large amount of data. Besides the textual post content, the data also contains account information, and -- crucially for this project -- the number of interactions with the post (for a codebook see @garmur2019crowdtangle). These interactions include the number of likes, shares and comments. 
+
+Since 2016, Facebook offers a set of distinct reactions to posts expressed by emojis, which may be interpreted as emotional reactions ("Love", "Angry", "Haha", "Wow", "Sad", "Care"). While some of these are quite ambiguous, recent research has used the "Love" and "Angry" reactions as proxies for the respective emotional response [@eberl2020what; @muraoka2021love].
+
+
+For now, I will restrict the analysis to Germany, but in principle, the approach will be scalable to other cases as well, since Facebook coverage is wide and behavior on the platform can be analyzed using a common metric [@muraoka2021love].
+
+For the first step, I will also restrict the analysis to posts from party accounts, as this already presents a large data source without the need to identify all relevant accounts from individual political candidates. In the next step, however, I will include all posts from individual candidates, which will then represent a more complex, nested data structure (posts nested within accounts, nested within parties).
+
+
+# Estimation strategy
+I intend to build a machine learning model predicting emotional reactions to Facebook posts. As outcome measure I will either use the number of "Love" /"Angry" reactions or its share on all reactions.
+
+As inputs, I intend to use three broad types of input: (i) metadata about the post as obtained from CrowdTangle, (ii) data derived from the message text, such as sentiment or topic, and (iii) external data from the information environment such as public issue salience, economic conditions, opinion polls, or time until election day.
+
+The exact model specifications are yet to be defined. Model performance will be investigated on test data, which will be left untouched during the model training phase (e.g. @james2013introduction).
+
+
+# References
+
+\newpage
+
+# References {-}
+
+::: {#refs}
+
+:::
