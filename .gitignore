@@ -53,3 +53,7 @@ paper/*.log
 # references should once be copied on drive, but don't have to be on git (from Citavi)
 paper/*.bib
 paper/*.csl
+
+*.pdf
+*.css
+*.html

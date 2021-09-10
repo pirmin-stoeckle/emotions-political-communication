@@ -1,15 +1,15 @@
 ---
 title: "Predicting emotional reactions to Facebook posts by political actors^[Corresponding adress: pirmin.stoeckle@gmail.com]"
-shorttitle: "Writing a reproducible paper with R Markdown and Pagedown"
+shorttitle: "Emotions political communication"
 author:
   - name: Pirmin Stöckle
-    affiliation: Mannheim Centre for European Social Research
+    affiliation: SFB 884
     email: <pirmin.stoeckle@gmail.com>
-date: 'First version: 20 June, 2021<br>This version: `r format(Sys.time(), "%d %B, %Y")`'
-download-link: 'Download: https://osf.io/k8jhx'
-abstract: 'Bliblablubb'
+date: \today
+#download-link: 
+#abstract: 
 # at least one keyword must be supplied
-keywords: [open science, transparency, replication, reproducible research, reproducibility, R, markdown, pagedown]
+keywords: [emotins, political communication]
 links-to-footnotes: false
 paged-footnotes: true
 bibliography: references.bib
@@ -67,8 +67,6 @@ As inputs, I intend to use three broad types of input: (i) metadata about the po
 
 The exact model specifications are yet to be defined. Model performance will be investigated on test data, which will be left untouched during the model training phase (e.g. @james2013introduction).
 
-
-# References
 
 \newpage
 
