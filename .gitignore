@@ -42,17 +42,17 @@ vignettes/*.pdf
 data/
 
 # paper template should be on the drive but not on github
-paper/paper-template.Rmd
+template.Rmd
 
 # .tex files are created by markdown to create pdf, but all information is in markdown
-paper/*.tex
+*.tex
 
 # don't need .log on git
-paper/*.log
+*.log
 
 # references should once be copied on drive, but don't have to be on git (from Citavi)
-paper/*.bib
-paper/*.csl
+*.bib
+*.csl
 
 *.pdf
 *.css
