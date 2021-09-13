@@ -18,7 +18,7 @@ output:
     template: wp_paged.html
     self_contained: true
     css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
-    csl: american-sociological-association.csl
+    csl: american-journal-of-political-science.csl
 # uncomment the next line if you only want to knit to HTML and not PDF
 knit: pagedown::chrome_print
 ---
