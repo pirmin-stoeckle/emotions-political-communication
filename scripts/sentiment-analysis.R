@@ -2,7 +2,9 @@ source("scripts/data-preparation.R")
 
 library(tidytext)
 
-# add if to data
+glimpse(data)
+
+# add id to data
 data$id <- rownames(data)
 
 # tokenize post content
@@ -18,7 +20,7 @@ tidy_posts %>%
   count(word, sort = TRUE)
 # -> I need more stopwords
 
-# maybe from package "lsa" as hinted at hgere: https://sebastiansauer.github.io/textmining_AfD_01/
+# maybe from package "lsa" as hinted at here: https://sebastiansauer.github.io/textmining_AfD_01/
 library(lsa)
 data(stopwords_de)
 stopwords_de <- data_frame(word = stopwords_de)
