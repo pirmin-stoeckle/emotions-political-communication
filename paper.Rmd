@@ -18,7 +18,7 @@ output:
     template: wp_paged.html
     self_contained: true
     css: ['wp.css', 'wp-fonts.css', 'wp-page.css']
-    csl: american-sociological-association.csl
+    csl: american-journal-of-political-science.csl
 # uncomment the next line if you only want to knit to HTML and not PDF
 knit: pagedown::chrome_print
 ---
@@ -59,6 +59,7 @@ For now, I will restrict the analysis to Germany, but in principle, the approach
 
 For the first step, I will also restrict the analysis to posts from party accounts, as this already presents a large data source without the need to identify all relevant accounts from individual political candidates. In the next step, however, I will include all posts from individual candidates, which will then represent a more complex, nested data structure (posts nested within accounts, nested within parties).
 
+This document is designed as a fully reproducible paper based on a template by @bauer2021writing^[available at [https://osf.io/k8jhx/](https://osf.io/k8jhx/)]
 
 # Estimation strategy
 I intend to build a machine learning model predicting emotional reactions to Facebook posts. As outcome measure I will either use the number of "Love" /"Angry" reactions or its share on all reactions.
